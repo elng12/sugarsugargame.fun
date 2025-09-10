@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sugarsugargame.fun/sitemap.xml
+
+# Block unnecessary crawling
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /*.json$

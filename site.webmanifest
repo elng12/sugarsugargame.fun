@@ -1,0 +1,16 @@
+{
+  "name": "Sugar Sugar Game",
+  "short_name": "Sugar Sugar",
+  "description": "Play Sugar Sugar game free online! Draw lines to guide sugar into cups in this addictive physics puzzle.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#4F46E5",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
