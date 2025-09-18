@@ -15,7 +15,7 @@
   <meta name="description" content="Play Sugar Sugar game free online! Draw lines to guide sugar into cups in this addictive physics puzzle. No download needed - start playing now!">
   <meta name="author" content="Sugar Sugar Game Fun">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://sugarsugargame.fun/" />
+  <link rel="canonical" href="/" />
   
   <!-- Additional SEO Elements -->
   <meta name="theme-color" content="#667eea">
@@ -35,18 +35,18 @@
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sugarsugargame.fun/">
+  <meta property="og:url" content="">
   <meta property="og:title" content="Sugar Sugar Game - Free Online Physics Puzzle Game">
   <meta property="og:description" content="Play Sugar Sugar game free online! Draw lines to guide sugar into cups in this addictive physics puzzle. No download needed - start playing now!">
-  <meta property="og:image" content="https://sugarsugargame.fun/apple-touch-icon.png">
+  <meta property="og:image" content="/apple-touch-icon.png">
   <meta property="og:site_name" content="Sugar Sugar Game Fun">
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://sugarsugargame.fun/">
+  <meta name="twitter:url" content="">
   <meta name="twitter:title" content="Sugar Sugar Game - Free Online Physics Puzzle Game">
   <meta name="twitter:description" content="Play the classic Sugar Sugar puzzle game online for free! Draw lines to guide sugar into cups.">
-  <meta name="twitter:image" content="https://sugarsugargame.fun/apple-touch-icon.png">
+  <meta name="twitter:image" content="/apple-touch-icon.png">
   
 
   
@@ -69,7 +69,7 @@
     "name": "Sugar Sugar Game",
     "alternateName": "Sugar Sugar Puzzle Game",
     "description": "Play the classic Sugar Sugar puzzle game online for free! Draw lines to guide sugar into cups. Experience this relaxing physics puzzle game.",
-    "url": "https://sugarsugargame.fun/",
+    "url": "/",
     "applicationCategory": "Game",
     "operatingSystem": "Any",
     "browserRequirements": "HTML5 compatible browser",
@@ -1595,12 +1595,12 @@
           <h3>Sugar Sugar Game</h3>
           <p>A platform dedicated to classic puzzle game enthusiasts, bringing you the joy of drawing lines to guide sugar anytime, anywhere.</p>
           <div class="social-links">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://sugarsugargame.fun/" class="social-link" aria-label="Share on Facebook" target="_blank" rel="noopener">
+            <a href="#" class="social-link" aria-label="Share on Facebook" onclick="shareOnFacebook()" rel="noopener">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
               </svg>
             </a>
-            <a href="https://twitter.com/intent/tweet?url=https://sugarsugargame.fun/&text=Play%20Sugar%20Sugar%20Game%20Free%20Online!" class="social-link" aria-label="Share on Twitter" target="_blank" rel="noopener">
+            <a href="#" class="social-link" aria-label="Share on Twitter" onclick="shareOnTwitter()" rel="noopener">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
               </svg>
@@ -1741,6 +1741,17 @@
         initMobileMenu();
         initGameLaunch();
         initSmoothScrolling();
+        initDynamicUrls();
+      }
+
+      // 动态设置 meta 标签 URL
+      function initDynamicUrls() {
+        const currentUrl = window.location.href;
+        const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+        const twitterUrlMeta = document.querySelector('meta[name="twitter:url"]');
+        
+        if (ogUrlMeta) ogUrlMeta.setAttribute('content', currentUrl);
+        if (twitterUrlMeta) twitterUrlMeta.setAttribute('content', currentUrl);
       }
 
       // Wait for DOM to be ready
