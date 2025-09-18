@@ -15,7 +15,7 @@
   <meta name="description" content="Play Sugar Sugar game free online! Draw lines to guide sugar into cups in this addictive physics puzzle. No download needed - start playing now!">
   <meta name="author" content="Sugar Sugar Game Fun">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="/" />
+  <link rel="canonical" href="https://sugarsugargame.fun/" />
   
   <!-- Additional SEO Elements -->
   <meta name="theme-color" content="#667eea">
@@ -35,7 +35,7 @@
   
   <!-- Open Graph / Social Media -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="">
+  <meta property="og:url" content="https://sugarsugargame.fun/">
   <meta property="og:title" content="Sugar Sugar Game - Free Online Physics Puzzle Game">
   <meta property="og:description" content="Play Sugar Sugar game free online! Draw lines to guide sugar into cups in this addictive physics puzzle. No download needed - start playing now!">
   <meta property="og:image" content="/apple-touch-icon.png">
@@ -43,7 +43,7 @@
   
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="">
+  <meta name="twitter:url" content="https://sugarsugargame.fun/">
   <meta name="twitter:title" content="Sugar Sugar Game - Free Online Physics Puzzle Game">
   <meta name="twitter:description" content="Play the classic Sugar Sugar puzzle game online for free! Draw lines to guide sugar into cups.">
   <meta name="twitter:image" content="/apple-touch-icon.png">
@@ -1744,14 +1744,21 @@
         initDynamicUrls();
       }
 
-      // 动态设置 meta 标签 URL
+      // 动态设置 meta 标签 URL（仅在本地开发环境）
       function initDynamicUrls() {
         const currentUrl = window.location.href;
-        const ogUrlMeta = document.querySelector('meta[property="og:url"]');
-        const twitterUrlMeta = document.querySelector('meta[name="twitter:url"]');
+        const isLocalDev = currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1') || currentUrl.includes('file://');
         
-        if (ogUrlMeta) ogUrlMeta.setAttribute('content', currentUrl);
-        if (twitterUrlMeta) twitterUrlMeta.setAttribute('content', currentUrl);
+        // 只在本地开发环境中覆盖 URL
+        if (isLocalDev) {
+          const ogUrlMeta = document.querySelector('meta[property="og:url"]');
+          const twitterUrlMeta = document.querySelector('meta[name="twitter:url"]');
+          const canonicalLink = document.querySelector('link[rel="canonical"]');
+          
+          if (ogUrlMeta) ogUrlMeta.setAttribute('content', currentUrl);
+          if (twitterUrlMeta) twitterUrlMeta.setAttribute('content', currentUrl);
+          if (canonicalLink) canonicalLink.setAttribute('href', currentUrl);
+        }
       }
 
       // Wait for DOM to be ready
